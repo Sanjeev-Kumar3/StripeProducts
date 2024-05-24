@@ -1,0 +1,57 @@
+<template>
+    <!-- Main Container -->
+    <lightning-card title="Our Products">
+
+        <!-- Display All products if we get them -->
+        <template if:true={products}>
+
+            <!-- Create carousel to show all products in horizontal scrollable view -->
+            <div class="carousel-container slds-p-around_small">
+                <div class="carousel-content">
+
+                    <!-- Iterate over products items  -->
+                    <template for:each={products} for:item="product">
+
+                        <!-- Generate each product in carousel  -->
+                        <div key={product.id} class="carousel-item slds-tabs_card">
+                            <lightning-card>
+
+                                <!-- Create a media container to show product content -->
+                                <div class="slds-media slds-p-around_small">
+
+                                    <!-- show picture of product -->
+                                    <div class="slds-media__figure">
+                                        <img src={product.image} alt={product.name} class="product-image"/>
+                                    </div>
+
+                                    <!-- Show products details -->
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-card__header-title">
+                                            <span class="formate-text">{product.name}</span>
+                                        </h2>
+                                        <p class="formate-text">{product.description}</p>
+                                        <div class="slds-text-heading_small"><p>Rs. {product.price}</p></div>
+                                        <lightning-button label="Create Payment Link" onclick={handleCreatePaymentLink} data-price-id={product.priceId} class="slds-m-top_small">
+                                        </lightning-button>
+                                    </div>
+                                    
+                                </div>
+
+                            </lightning-card>
+                        </div>
+
+                    </template>
+
+                </div>
+            </div>
+
+        </template>
+
+        <!-- Display Error message If we don't get products -->
+        <template if:true={error}>
+            <div class="slds-text-color_error">
+                <p>{error}</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

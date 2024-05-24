@@ -1,0 +1,29 @@
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-content {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+    width: 350px;
+    height: 160px;
+    box-sizing: border-box;
+}
+
+.product-image {
+    max-width: 100px;
+    max-height: 100px; 
+}
+
+.formate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
